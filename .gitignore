@@ -1,0 +1,28 @@
+# Generated reports (contain client data, never commit)
+reports/
+*.local.html
+
+# Logo files dropped for Stage 0 manual branding (may contain client logos)
+assets/logo.*
+assets/*.png
+assets/*.svg
+assets/*.jpg
+assets/*.jpeg
+!assets/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Claude Code session data
+.claude/sessions/
+.claude/worktrees/
+
+# Node (in case anyone adds build tooling later)
+node_modules/
+dist/
