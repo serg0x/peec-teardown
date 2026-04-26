@@ -120,7 +120,7 @@ Settings → Connectors → Add custom connector
 
 **3. Open the project in Claude Code Desktop:**
 
-File → Open Project → select the cloned `teardown` folder.
+File → Open Project → select the cloned `peec-teardown` folder.
 
 Claude reads `CLAUDE.md` automatically and knows how to run the workflow.
 
