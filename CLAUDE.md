@@ -39,25 +39,31 @@ Before any analysis, set up the report's visual identity. The output is a small 
 
 ### Path A — Auto-extract from URL (BRANDING: auto:https://example.com)
 
-1. **Fetch the homepage** via `WebFetch` on the provided URL.
-2. **Parse for branding signals.** Look for:
-   - **Logo URL.** Check in this order: `<link rel="icon" href="...">` and `<link rel="apple-touch-icon" href="...">`, then `<meta property="og:image">` and `<meta property="og:logo">`, then `<img>` tags inside `<header>` or with class containing "logo", "brand", or "mark", then `favicon.ico` at the domain root.
-   - **Brand color.** Check in this order: CSS custom properties matching `--brand`, `--primary`, `--accent`, `--color-primary`, then inline styles or stylesheet declarations on `<header>`, `<button>`, primary CTAs (look for `class*="cta"`, `class*="primary"`, `class*="btn-primary"`), then `<meta name="theme-color">`. If multiple plausible colors emerge, prefer the one that appears in interactive elements (buttons, links, accents) over background colors.
-   - **Brand font.** Check in this order: `<link href="https://fonts.googleapis.com/...">` declarations, then `<link href="https://api.fontshare.com/...">`, then `font-family` declarations in stylesheets. Pick the family used in headings, not body text, when both differ.
+Auto-extract is best-effort. Logo and font are usually detectable from a site's HTML head; brand color almost never is — modern sites compile their CSS to hashed files, and `<meta name="theme-color">` typically reflects the page surface (often near-black or near-white), not the brand accent. Plan to ask the user to confirm the color in every case.
 
-3. **Present candidates with reasoning to the user.** Format:
+1. **Fetch the raw HTML** via `Bash` using `curl -sL -A 'Mozilla/5.0' <URL> | head -c 20000`. `WebFetch` strips the `<head>` before its summarizer sees the content, so it cannot return the metadata Stage 0 needs — use `curl` instead.
+
+2. **Parse the head for high-confidence signals.** From the raw HTML returned by curl:
+   - **Logo URL.** Check in this order: `<link rel="apple-touch-icon" href="...">` (usually the cleanest brand mark), then `<link rel="icon" href="...">`, then `<meta property="og:image">` and `<meta property="og:logo">`, then `favicon.ico` at the domain root. Resolve relative URLs against the homepage origin.
+   - **Brand font.** Check in this order: `<link href="https://fonts.googleapis.com/...">` declarations, then `<link href="https://api.fontshare.com/...">`, then any `<link rel="preload" as="font" href="...">`. Pick the heading family if multiple are loaded.
+
+3. **For brand color, do NOT guess.** `<meta name="theme-color">` is usually the page surface, not the accent. Ask the user explicitly:
+
+> I couldn't reliably extract the brand color from the homepage head — modern sites compile their CSS to hashed files and `theme-color` is usually the surface, not the accent. To grab the real brand color: open the site in a browser, right-click a primary CTA button or active link, choose "Inspect", and copy the hex value of `background-color` (for buttons) or `color` (for links). Paste the hex when ready.
+
+4. **Present what you found, with confidence levels.** Format:
 
 > Based on https://example.com I found:
 >
-> **Logo:** `https://example.com/assets/logo.svg` (found via `<img>` in `<header>`)
-> **Brand color:** `#4338CA` (used in primary CTA buttons and the navigation underline)
-> **Font:** `Plus Jakarta Sans` (loaded from Google Fonts, used in `<h1>`)
+> **Logo:** `https://example.com/apple-touch-icon.png` (HIGH · `<link rel="apple-touch-icon">`)
+> **Font:** `Inter` (HIGH · loaded from Google Fonts)
+> **Brand color:** unable to detect reliably — please paste a hex per the inspect-element instructions above.
 >
-> Confirm to apply, or tell me what to change.
+> Confirm logo and font, then provide the brand color hex.
 
-4. **If extraction fails or returns low-confidence results,** say so explicitly and ask the user for manual values.
+5. **If logo or font also fail to extract,** say so explicitly and ask for manual values for whichever piece failed. Do not invent.
 
-5. **Wait for user confirmation** before proceeding to Stage 1.
+6. **Wait for the user's color hex (and any corrections)** before proceeding to Stage 1.
 
 ### Path B — Manual values (BRANDING: manual)
 
