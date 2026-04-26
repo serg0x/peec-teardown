@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Search Perception Teardown · premote vs. WorkFlex</title>
+<title>AI Search Perception Teardown · Brand A vs. Brand B</title>
 <!-- ====== TEMPLATE CONFIG · FONT ======
      The brand font is loaded below and referenced via --brand-font in CSS.
      Default: Plus Jakarta Sans (Google Fonts). To change:
@@ -68,8 +68,8 @@
     --danger-soft: #FEE2E2;
 
     /* Competition colors — own brand vs rival (fixed; rival stays neutral teal against any brand) */
-    --premote: var(--brand-color);
-    --workflex: #0F766E;
+    --own-color: var(--brand-color);
+    --rival-color: #0F766E;
     --other: #A1A1AA;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -205,8 +205,8 @@
   }
   .brand-bar-wrap { height: 12px; background: var(--line-soft); border-radius: 999px; overflow: hidden; }
   .brand-bar { height: 100%; background: var(--other); border-radius: 999px; transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .brand-bar.self { background: var(--premote); }
-  .brand-bar.rival { background: var(--workflex); }
+  .brand-bar.self { background: var(--own-color); }
+  .brand-bar.rival { background: var(--rival-color); }
   .brand-metric {
     font-family: var(--brand-font); font-weight: 700;
     font-size: 20px; letter-spacing: -0.02em; text-align: right; font-variant-numeric: tabular-nums;
@@ -229,11 +229,11 @@
   .dual-row.loss .dual-label .sub { color: var(--danger); font-weight: 500; }
   .paired-bar { position: relative; height: 36px; }
   .paired-bar .bar { position: absolute; height: 8px; border-radius: 999px; }
-  .paired-bar .bar.a { background: var(--premote); top: 6px; }
-  .paired-bar .bar.b { background: var(--workflex); top: 22px; }
+  .paired-bar .bar.a { background: var(--own-color); top: 6px; }
+  .paired-bar .bar.b { background: var(--rival-color); top: 22px; }
   .paired-bar .val { position: absolute; font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
-  .paired-bar .val.a { color: var(--premote); top: -5px; }
-  .paired-bar .val.b { color: var(--workflex); top: 28px; }
+  .paired-bar .val.a { color: var(--own-color); top: -5px; }
+  .paired-bar .val.b { color: var(--rival-color); top: 28px; }
   .legend { display: flex; gap: 24px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line-soft); font-size: 12px; color: var(--ink-muted); }
   .legend-item { display: flex; align-items: center; gap: 10px; }
   .legend-swatch { width: 20px; height: 5px; border-radius: 999px; }
@@ -275,8 +275,8 @@
   }
   .pill-xs.priority { background: var(--indigo); color: #fff; }
   .bg-metric { font-family: var(--brand-font); font-weight: 700; font-size: 26px; text-align: right; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-  .bg-metric.a { color: var(--premote); }
-  .bg-metric.b { color: var(--workflex); }
+  .bg-metric.a { color: var(--own-color); }
+  .bg-metric.b { color: var(--rival-color); }
   .bg-gap { text-align: right; }
   .bg-gap-val {
     display: inline-flex; align-items: center; font-size: 14px; font-weight: 600;
@@ -324,27 +324,27 @@
   .cite-detail { display: flex; align-items: center; gap: 12px; font-size: 13px; }
   .cite-bar { display: flex; gap: 3px; align-items: center; }
   .cite-seg { width: 12px; height: 20px; border-radius: 3px; background: var(--line); }
-  .cite-seg.a { background: var(--premote); }
-  .cite-seg.b { background: var(--workflex); }
+  .cite-seg.a { background: var(--own-color); }
+  .cite-seg.b { background: var(--rival-color); }
   .evidence-total { font-family: var(--brand-font); font-weight: 700; font-size: 20px; text-align: right; letter-spacing: -0.02em; }
   .zero-flag { color: var(--danger); font-weight: 600; font-size: 13px; }
   .evidence-note { color: var(--ink-muted); font-style: italic; font-size: 13px; }
 
   .perception-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
   .perception-card { background: var(--canvas-elevated); border-radius: 28px; padding: 40px; border: 2px solid var(--line); }
-  .perception-card.workflex { border-color: var(--workflex); }
-  .perception-card.premote { border-color: var(--premote); }
+  .perception-card.rival { border-color: var(--rival-color); }
+  .perception-card.own { border-color: var(--own-color); }
   .perception-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--line-soft); }
   .perception-brand { font-family: var(--brand-font); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; }
-  .perception-card.workflex .perception-brand { color: var(--workflex); }
-  .perception-card.premote .perception-brand { color: var(--premote); }
+  .perception-card.rival .perception-brand { color: var(--rival-color); }
+  .perception-card.own .perception-brand { color: var(--own-color); }
   .feature-count { font-family: var(--brand-font); font-weight: 700; font-size: 48px; line-height: 1; letter-spacing: -0.03em; }
   .feature-count .sub { font-size: 11px; font-weight: 500; color: var(--ink-muted); display: block; margin-top: 6px; }
   .feature-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
   .feature-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.4; color: var(--ink); }
   .feature-list li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
-  .perception-card.workflex .feature-list li::before { background: var(--workflex); }
-  .perception-card.premote .feature-list li::before { background: var(--premote); }
+  .perception-card.rival .feature-list li::before { background: var(--rival-color); }
+  .perception-card.own .feature-list li::before { background: var(--own-color); }
   .quote-pull { padding: 20px 24px; background: var(--canvas-soft); border-radius: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-soft); position: relative; }
   .quote-pull::before { content: '"'; position: absolute; top: -4px; left: 8px; font-family: var(--brand-font); font-size: 48px; color: var(--lilac); font-weight: 700; line-height: 1; }
   .quote-pull .body { padding-left: 20px; font-style: italic; }
@@ -582,14 +582,14 @@
 
 <section class="hero">
   <div class="container">
-    <div class="eyebrow">premote · AI Visibility Audit</div>
-    <h1>Wie KI-Such­maschinen premote <span class="accent">und</span> WorkFlex beschreiben.</h1>
-    <p class="hero-subtitle">Eine 30-Tage-Analyse über 877 AI-Suchanfragen, drei aktive Modelle, 13 getrackte Wett­bewerber. Alle fünf Battleground-Prompts vollständig analysiert. Ziel: zeigen, <strong>wo</strong> WorkFlex gewinnt, <strong>warum</strong> es gewinnt, und was dagegen hilft.</p>
+    <div class="eyebrow">Brand A · AI Visibility Audit</div>
+    <h1>How AI search engines describe Brand A <span class="accent">and</span> Brand B.</h1>
+    <p class="hero-subtitle">A 30-day analysis across 877 AI queries, three active models, 13 tracked competitors. All five battleground prompts fully analyzed. Goal: show <strong>where</strong> Brand B wins, <strong>why</strong> it wins, and what to do about it.</p>
     <div class="hero-grid">
-      <div class="hero-meta"><span class="label">Zeitraum</span><span class="value">24.03. – 23.04.2026</span></div>
-      <div class="hero-meta"><span class="label">Datenbasis</span><span class="value">877 Chats · 20 Prompts</span></div>
-      <div class="hero-meta"><span class="label">Aktive Modelle</span><span class="value">ChatGPT · AI Overview · Perplexity</span></div>
-      <div class="hero-meta"><span class="label">Workflow-Status</span><span class="value" style="color: var(--success);">✓ vollständig</span></div>
+      <div class="hero-meta"><span class="label">Period</span><span class="value">Mar 24 – Apr 23, 2026</span></div>
+      <div class="hero-meta"><span class="label">Data basis</span><span class="value">877 chats · 20 prompts</span></div>
+      <div class="hero-meta"><span class="label">Active models</span><span class="value">ChatGPT · AI Overview · Perplexity</span></div>
+      <div class="hero-meta"><span class="label">Workflow status</span><span class="value" style="color: var(--success);">✓ complete</span></div>
     </div>
   </div>
 </section>
@@ -598,44 +598,44 @@
 <section>
   <div class="container">
     <div class="section-eyebrow"><span class="num">01</span> TL;DR</div>
-    <h2>Der Abstand wirkt klein. <span class="accent">Ist er aber nicht.</span></h2>
-    <p class="section-intro">Zwei Prozentpunkte zwischen premote und WorkFlex. Der Gesamtabstand verbirgt drei strukturell unter­schiedliche Wettbewerbsmuster mit jeweils anderen Gegenmitteln.</p>
+    <h2>The gap looks small. <span class="accent">It isn't.</span></h2>
+    <p class="section-intro">Two percentage points between Brand A and Brand B. The headline gap hides three structurally different competitive patterns, each with its own remedy.</p>
 
     <div class="tldr">
       <div class="tldr-grid">
         <div>
-          <h3>Das strukturelle Muster</h3>
-          <p>premote verfügt über dedizierte <code>/loesungen/</code>-Produktseiten für alle zentralen Themen — Workation, Dienstreise, A1, EU-Entsenderichtlinie, Freigabe-Prozesse, Risiko Assessment. Die Seiten existieren und sind bei Peec als PRODUCT_PAGE indiziert.</p>
-          <p>Das Problem liegt nicht in fehlendem Content, sondern in <strong>inkonsistenter AI-Auffindbarkeit</strong>: Manche dieser Seiten werden zuverlässig retrieved und zitiert, andere nie.</p>
+          <h3>The structural pattern</h3>
+          <p>Brand A has dedicated <code>/solutions/</code> product pages for every core topic — workation, business travel, A1 certificates, EU posted-worker directive, approval flows, risk assessment. The pages exist and are indexed at Peec as PRODUCT_PAGE.</p>
+          <p>The problem isn't missing content — it's <strong>inconsistent AI discoverability</strong>: some of these pages get retrieved and cited reliably, others never.</p>
         </div>
         <div>
-          <h3>Die A1-Lücke ist ein Discovery-Problem</h3>
-          <p>Auf den Prompts 3 (Workation) und 5 (Freigabe) funktioniert es wie gewünscht: die entsprechenden <code>/loesungen/</code>-Seiten werden retrieved und zitiert.</p>
-          <p>Auf Prompt 4 (A1) hingegen erscheint die existierende Seite <code>/loesungen/features/a1-bescheinigung-cocs</code> in <strong>keinem</strong> der sieben analysierten Chats. AI-Engines retrievieren stattdessen premote Wiki-Artikel. Die Seite existiert, wird aber nicht gefunden.</p>
+          <h3>The A1 gap is a discovery problem</h3>
+          <p>On Prompts 3 (Workation) and 5 (Approval) the system works as intended: the relevant <code>/solutions/</code> pages get retrieved and cited.</p>
+          <p>On Prompt 4 (A1), the existing page <code>/solutions/features/a1-certificates-cocs</code> appears in <strong>none</strong> of the seven analyzed chats. AI engines retrieve Brand A wiki articles instead. The page exists; it isn't being found.</p>
         </div>
       </div>
     </div>
 
     <div class="stat-callouts">
       <div class="stat-card">
-        <div class="stat-label">Sichtbarkeit premote</div>
+        <div class="stat-label">Brand A visibility</div>
         <div class="stat-value">22<span class="unit">%</span></div>
-        <div class="stat-detail">Platz 2 von 13 Marken</div>
+        <div class="stat-detail">Rank 2 of 13 brands</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Hauptkonkurrent</div>
+        <div class="stat-label">Lead competitor</div>
         <div class="stat-value">24<span class="unit">%</span></div>
-        <div class="stat-detail">WorkFlex · Platz 1</div>
+        <div class="stat-detail">Brand B · Rank 1</div>
       </div>
       <div class="stat-card highlight">
-        <div class="stat-label">Prompt 04 Lücke</div>
+        <div class="stat-label">Prompt 04 gap</div>
         <div class="stat-value">-12<span class="unit">pp</span></div>
-        <div class="stat-detail">A1-Bescheinigung · Medium Volume</div>
+        <div class="stat-detail">A1 certificates · medium volume</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Peec Opportunity Score</div>
         <div class="stat-value">0.33</div>
-        <div class="stat-detail">Product Pages · HIGH · unabhängig validiert</div>
+        <div class="stat-detail">Product pages · HIGH · independently validated</div>
       </div>
     </div>
   </div>
@@ -644,21 +644,21 @@
 <!-- POSITIONING -->
 <section>
   <div class="container">
-    <div class="section-eyebrow"><span class="num">02</span> Positionierung</div>
-    <h2>Drei Sichten auf <span class="accent">dieselbe Realität.</span></h2>
-    <p class="section-intro">Dasselbe 30-Tage-Fenster, aufgeschlüsselt nach Marke, Intent-Tag und KI-Modell. Jede Sicht erzählt eine andere strategische Geschichte.</p>
+    <div class="section-eyebrow"><span class="num">02</span> Positioning</div>
+    <h2>Three views on <span class="accent">the same reality.</span></h2>
+    <p class="section-intro">The same 30-day window, sliced by brand, intent tag, and AI model. Each view tells a different strategic story.</p>
 
     <div style="margin-top: 64px;">
-      <h4>Overall · Sichtbarkeit aller getrackten Marken</h4>
+      <h4>Overall · visibility across all tracked brands</h4>
       <div class="brand-chart">
         <div class="brand-row">
-          <div class="brand-name"><span class="brand-dot" style="background: var(--workflex)"></span>WorkFlex</div>
+          <div class="brand-name"><span class="brand-dot" style="background: var(--rival-color)"></span>Brand B</div>
           <div class="brand-bar-wrap"><div class="brand-bar rival" style="width: 100%"></div></div>
           <div class="brand-metric">24<span class="unit">%</span></div>
           <div class="brand-pos">1.4</div>
         </div>
         <div class="brand-row highlight">
-          <div class="brand-name"><span class="brand-dot" style="background: var(--premote)"></span>premote<span class="brand-tag-self">eigene Marke</span></div>
+          <div class="brand-name"><span class="brand-dot" style="background: var(--own-color)"></span>Brand A<span class="brand-tag-self">own brand</span></div>
           <div class="brand-bar-wrap"><div class="brand-bar self" style="width: 91.6%"></div></div>
           <div class="brand-metric">22<span class="unit">%</span></div>
           <div class="brand-pos">1.7</div>
@@ -704,9 +704,9 @@
 
     <div class="dual-grid">
       <div class="dual-card">
-        <h4>Nach Intent-Tag</h4>
+        <h4>By intent tag</h4>
         <div class="dual-row">
-          <div class="dual-label">Transactional<span class="sub">Vendor-Anfragen</span></div>
+          <div class="dual-label">Transactional<span class="sub">vendor queries</span></div>
           <div class="paired-bar">
             <div class="bar a" style="left: 0; width: 59.4%;"></div>
             <div class="val a" style="left: 59.4%; margin-left: 8px;">39%</div>
@@ -715,7 +715,7 @@
           </div>
         </div>
         <div class="dual-row">
-          <div class="dual-label">Risk<span class="sub">Risiko-Prüfung</span></div>
+          <div class="dual-label">Risk<span class="sub">risk assessment</span></div>
           <div class="paired-bar">
             <div class="bar a" style="left: 0; width: 48.7%;"></div>
             <div class="val a" style="left: 48.7%; margin-left: 8px;">32%</div>
@@ -724,7 +724,7 @@
           </div>
         </div>
         <div class="dual-row">
-          <div class="dual-label">A1<span class="sub">A1-Bescheinigung</span></div>
+          <div class="dual-label">A1<span class="sub">A1 certificates</span></div>
           <div class="paired-bar">
             <div class="bar a" style="left: 0; width: 35%;"></div>
             <div class="val a" style="left: 35%; margin-left: 8px;">23%</div>
@@ -733,7 +733,7 @@
           </div>
         </div>
         <div class="dual-row win">
-          <div class="dual-label">HR<span class="sub">premote gewinnt · verliert Position</span></div>
+          <div class="dual-label">HR<span class="sub">Brand A wins frequency · loses position</span></div>
           <div class="paired-bar">
             <div class="bar a" style="left: 0; width: 51.8%;"></div>
             <div class="val a" style="left: 51.8%; margin-left: 8px;">34%</div>
@@ -751,15 +751,15 @@
           </div>
         </div>
         <div class="legend">
-          <div class="legend-item"><span class="legend-swatch" style="background: var(--premote)"></span>premote</div>
-          <div class="legend-item"><span class="legend-swatch" style="background: var(--workflex)"></span>WorkFlex</div>
+          <div class="legend-item"><span class="legend-swatch" style="background: var(--own-color)"></span>Brand A</div>
+          <div class="legend-item"><span class="legend-swatch" style="background: var(--rival-color)"></span>Brand B</div>
         </div>
       </div>
 
       <div class="dual-card">
-        <h4>Nach KI-Modell</h4>
+        <h4>By AI model</h4>
         <div class="dual-row win">
-          <div class="dual-label">Google AI Overview<span class="sub">+8 pp · premote dominiert</span></div>
+          <div class="dual-label">Google AI Overview<span class="sub">+8 pp · Brand A dominates</span></div>
           <div class="paired-bar">
             <div class="bar a" style="left: 0; width: 73%;"></div>
             <div class="val a" style="left: 73%; margin-left: 8px;">48%</div>
@@ -768,7 +768,7 @@
           </div>
         </div>
         <div class="dual-row loss">
-          <div class="dual-label">Perplexity<span class="sub">-11 pp · WorkFlex 2.4× stärker</span></div>
+          <div class="dual-label">Perplexity<span class="sub">-11 pp · Brand B 2.4× stronger</span></div>
           <div class="paired-bar">
             <div class="bar a" style="left: 0; width: 14%;"></div>
             <div class="val a" style="left: 14%; margin-left: 8px;">8%</div>
@@ -777,7 +777,7 @@
           </div>
         </div>
         <div class="dual-row">
-          <div class="dual-label">ChatGPT<span class="sub">Unentschieden</span></div>
+          <div class="dual-label">ChatGPT<span class="sub">tied</span></div>
           <div class="paired-bar">
             <div class="bar a" style="left: 0; width: 24.5%;"></div>
             <div class="val a" style="left: 24.5%; margin-left: 8px;">14%</div>
@@ -785,15 +785,15 @@
             <div class="val b" style="left: 28%; margin-left: 8px;">16%</div>
           </div>
         </div>
-        <p style="margin-top: 32px; font-size: 14px; line-height: 1.55; color: var(--ink-soft);"><strong>Wichtigste strategische Erkenntnis.</strong> WorkFlex' Moat erscheint besonders stark auf Perplexity — im Aggregat 2.4× stärker als premote. Die Asymmetrie ist jedoch nicht uniform: auf einzelnen Prompts (z.B. Prompt 5) ist premote auf Perplexity gut vertreten. Das Muster ist modell- <em>und</em> prompt-spezifisch. Unterschiedliche Modelle ziehen aus unterschiedlichen Quellpools.</p>
+        <p style="margin-top: 32px; font-size: 14px; line-height: 1.55; color: var(--ink-soft);"><strong>Key strategic insight.</strong> Brand B's moat is especially strong on Perplexity — in aggregate 2.4× stronger than Brand A. The asymmetry isn't uniform, though: on individual prompts (e.g. Prompt 5) Brand A shows up well on Perplexity. The pattern is model- <em>and</em> prompt-specific. Different models draw from different source pools.</p>
       </div>
     </div>
 
     <div class="insight">
-      <div class="label">Wichtigste strukturelle Erkenntnis</div>
-      <h3>premote hat zwei getrennte Probleme, die wie <span class="accent">ein</span> Problem aussehen.</h3>
-      <p>In HR- und Compliance-Prompts wird premote <strong>häufiger genannt</strong> als WorkFlex, aber <strong>später in den Listen</strong>. Das ist kein Content-Problem, sondern ein Listicle-Reihenfolge-Problem.</p>
-      <p>In Transactional- und A1-Prompts wird premote seltener genannt und schwächer beschrieben. Das ist ein Owned-Page-Problem. Die Fixes sehen grund­verschieden aus.</p>
+      <div class="label">Key structural insight</div>
+      <h3>Brand A has two separate problems that look like <span class="accent">one</span>.</h3>
+      <p>On HR and compliance prompts, Brand A is <strong>mentioned more often</strong> than Brand B but <strong>later in the list</strong>. That's not a content problem — it's a listicle-order problem.</p>
+      <p>On transactional and A1 prompts, Brand A is mentioned less often and described more thinly. That's an owned-page problem. The fixes look fundamentally different.</p>
     </div>
   </div>
 </section>
@@ -802,21 +802,21 @@
 <section>
   <div class="container">
     <div class="section-eyebrow"><span class="num">03</span> Battlegrounds</div>
-    <h2>Fünf Prompts, auf denen <span class="accent">WorkFlex</span> gewinnt.</h2>
-    <p class="section-intro">Nach Sichtbarkeits­lücke sortiert. Prompt #4 ist die kommerziell schmerzhafteste, weil sie als einzige Medium-Volume-Suche direkt auf premotes Kern­produkt zielt.</p>
+    <h2>Five prompts where <span class="accent">Brand B</span> wins.</h2>
+    <p class="section-intro">Sorted by visibility gap. Prompt #4 is commercially the most painful — the only medium-volume search aimed directly at Brand A's core product.</p>
 
     <div class="battleground">
       <div class="bg-row head">
         <div>#</div>
         <div>Prompt</div>
-        <div style="text-align: right;">premote</div>
-        <div style="text-align: right;">WorkFlex</div>
-        <div style="text-align: right;">Lücke</div>
-        <div style="text-align: right;">Volumen</div>
+        <div style="text-align: right;">Brand A</div>
+        <div style="text-align: right;">Brand B</div>
+        <div style="text-align: right;">Gap</div>
+        <div style="text-align: right;">Volume</div>
       </div>
       <div class="bg-row">
         <div class="bg-rank">01</div>
-        <div class="bg-prompt">Welche Software hilft Unternehmen, internationale Dienst­reisen und Workations rechtssicher zu prüfen?<div class="tags"><span class="pill-xs">low volume</span></div></div>
+        <div class="bg-prompt">What software helps companies vet international business travel and workations for legal risk?<div class="tags"><span class="pill-xs">low volume</span></div></div>
         <div class="bg-metric a">47%</div>
         <div class="bg-metric b">74%</div>
         <div class="bg-gap"><span class="bg-gap-val severe">-27 pp</span></div>
@@ -824,7 +824,7 @@
       </div>
       <div class="bg-row">
         <div class="bg-rank">02</div>
-        <div class="bg-prompt">Welche Plattformen gibt es für internationale Reisen, Remote Work und Entsendungen?<div class="tags"><span class="pill-xs">low volume</span></div></div>
+        <div class="bg-prompt">What platforms exist for managing international travel, remote work, and posted-worker assignments?<div class="tags"><span class="pill-xs">low volume</span></div></div>
         <div class="bg-metric a">20%</div>
         <div class="bg-metric b">42%</div>
         <div class="bg-gap"><span class="bg-gap-val severe">-22 pp</span></div>
@@ -832,7 +832,7 @@
       </div>
       <div class="bg-row">
         <div class="bg-rank">03</div>
-        <div class="bg-prompt">Welche Software prüft Workation-Anfragen auto­mati­siert auf rechtliche Risiken?<div class="tags"><span class="pill-xs">low volume</span></div></div>
+        <div class="bg-prompt">Which software automates legal-risk checks on workation requests?<div class="tags"><span class="pill-xs">low volume</span></div></div>
         <div class="bg-metric a">55%</div>
         <div class="bg-metric b">74%</div>
         <div class="bg-gap"><span class="bg-gap-val">-19 pp</span></div>
@@ -840,7 +840,7 @@
       </div>
       <div class="bg-row hero">
         <div class="bg-rank" style="color: var(--indigo);">04</div>
-        <div class="bg-prompt"><strong>Ich suche eine Software für A1-Bescheinigungen, Entsende­meldungen und internationale Reise­risiken.</strong><div class="tags"><span class="pill-xs priority">höchste Priorität</span><span class="pill-xs">medium volume</span></div></div>
+        <div class="bg-prompt"><strong>I'm looking for software for A1 certificates, posted-worker filings, and international travel risk.</strong><div class="tags"><span class="pill-xs priority">top priority</span><span class="pill-xs">medium volume</span></div></div>
         <div class="bg-metric a">43%</div>
         <div class="bg-metric b">55%</div>
         <div class="bg-gap"><span class="bg-gap-val">-13 pp</span></div>
@@ -848,7 +848,7 @@
       </div>
       <div class="bg-row">
         <div class="bg-rank">05</div>
-        <div class="bg-prompt">Welche Software gibt es für die Freigabe und Prüfung grenz­über­schreit­ender Arbeit?<div class="tags"><span class="pill-xs">low volume</span></div></div>
+        <div class="bg-prompt">What software exists for approving and reviewing cross-border work?<div class="tags"><span class="pill-xs">low volume</span></div></div>
         <div class="bg-metric a">38%</div>
         <div class="bg-metric b">49%</div>
         <div class="bg-gap"><span class="bg-gap-val">-10 pp</span></div>
@@ -861,17 +861,17 @@
 <!-- THE PATTERN -->
 <section>
   <div class="container">
-    <div class="section-eyebrow"><span class="num">04</span> Das Muster</div>
-    <h2>Seiten existieren. <span class="accent">AI findet sie nicht.</span></h2>
-    <p class="section-intro">Das schärfere Muster: premote hat dedizierte Solutions-Seiten zu allen Battleground-Themen. Einige werden von AI-Engines zuverlässig retrieved, andere nie. Der A1-Spezialfall ist ein Discovery-Problem, kein Content-Problem.</p>
+    <div class="section-eyebrow"><span class="num">04</span> The pattern</div>
+    <h2>Pages exist. <span class="accent">AI doesn't find them.</span></h2>
+    <p class="section-intro">The sharper pattern: Brand A has dedicated solutions pages for every battleground topic. Some get retrieved reliably; others, never. The A1 special case is a discovery problem, not a content problem.</p>
 
     <div class="pattern-banner">
-      <div class="pattern-label">DIE KORRIGIERTE ERKENNTNIS</div>
+      <div class="pattern-label">THE CORRECTED INSIGHT</div>
       <div class="pattern-grid">
-        <div class="pattern-headline">Produktseite existiert.<br>In <code>0 von 7</code> A1-Chats retrieved.</div>
+        <div class="pattern-headline">Product page exists.<br>Retrieved in <code>0 of 7</code> A1 chats.</div>
         <div class="pattern-stat">
           <div class="pattern-stat-val">≠</div>
-          <div class="pattern-stat-label">Indiziert sein<br>ist nicht retrieved werden</div>
+          <div class="pattern-stat-label">Being indexed<br>is not being retrieved</div>
         </div>
       </div>
     </div>
@@ -880,71 +880,71 @@
       <div class="prompt-card anchor">
         <div class="prompt-card-top">
           <div>
-            <span class="prompt-card-label">Prompt 04 · A1-Bescheinigung</span>
+            <span class="prompt-card-label">Prompt 04 · A1 certificates</span>
           </div>
           <div class="prompt-card-gap">-13 pp</div>
         </div>
-        <div class="prompt-card-query">Ich suche eine Software für A1-Bescheinigungen, Entsende­meldungen und internationale Reise­risiken. Welche gibt es?</div>
+        <div class="prompt-card-query">I'm looking for software for A1 certificates, posted-worker filings, and international travel risk. What's out there?</div>
         <div class="prompt-card-meta">
           <span class="pill-xs priority">medium volume</span>
           <span class="pill-xs">A1 / Risk / Transactional</span>
         </div>
         <div class="prompt-card-finding">
-          <strong>Die Seite existiert. AI findet sie nicht.</strong> Peec hat <code>premote.de/loesungen/features/a1-bescheinigung-cocs</code> als PRODUCT_PAGE indiziert (letzter Scrape 16.04.). In den 7 analysierten A1-Chats erscheint diese URL jedoch <strong>nirgends</strong> im Retrieval-Pool. Stattdessen werden premote Wiki-Artikel retrieved, und WorkFlex wird mit 5 eigenen Seiten auf zwei Domains zitiert. Dies ist kein Content-Gap, sondern ein Auffindbarkeits-Problem. Die vollständige Diagnostik folgt in Section 05.
+          <strong>The page exists. AI doesn't find it.</strong> Peec has indexed <code>brand-a.com/solutions/features/a1-certificates-cocs</code> as PRODUCT_PAGE (last scrape Apr 16). In the 7 analyzed A1 chats, that URL appears <strong>nowhere</strong> in the retrieval pool. AI engines pull Brand A wiki articles instead, and Brand B is cited with 5 of its own pages across two domains. This is not a content gap — it's a discoverability problem. Full diagnostic in Section 05.
         </div>
-        <div class="prompt-card-action">Discovery-Audit der existierenden A1-Solutions-Seite</div>
+        <div class="prompt-card-action">Discovery audit of the existing A1 solutions page</div>
       </div>
 
       <div class="prompt-card">
         <div class="prompt-card-top">
-          <div><span class="prompt-card-label">Prompt 01 · Rechtssichere Reisen</span></div>
+          <div><span class="prompt-card-label">Prompt 01 · Legally compliant travel</span></div>
           <div class="prompt-card-gap">-27 pp</div>
         </div>
-        <div class="prompt-card-query">Welche Software hilft Unternehmen dabei, internationale Dienstreisen und Workations rechtssicher zu prüfen?</div>
+        <div class="prompt-card-query">What software helps companies vet international business travel and workations for legal risk?</div>
         <div class="prompt-card-meta"><span class="pill-xs">low volume</span></div>
         <div class="prompt-card-finding">
-          <strong>Modell-Asymmetrie.</strong> Auf Google AI Overview (17.04.) wird <code>premote.de/loesungen/workation-compliance</code> an Position 1 der Quellen retrieved und einmal zitiert. Auf Perplexity (17.04.) hingegen erscheint premote in keiner Quelle; WorkFlex und Rhome werden genannt. Gleiche Prompt, gleicher Tag — fundamental unterschiedliche Retrieval-Pools je nach Modell.
+          <strong>Model asymmetry.</strong> On Google AI Overview (Apr 17), <code>brand-a.com/solutions/workation-compliance</code> is retrieved at source position 1 and cited once. On Perplexity (Apr 17), Brand A appears in no source; Brand B and Rhome are mentioned instead. Same prompt, same day — fundamentally different retrieval pools per model.
         </div>
-        <div class="prompt-card-action">Perplexity-spezifischer Discovery-Audit für Workation-Seite</div>
+        <div class="prompt-card-action">Perplexity-specific discovery audit for the workation page</div>
       </div>
 
       <div class="prompt-card greenfield">
         <div class="prompt-card-top">
-          <div><span class="prompt-card-label">Prompt 02 · Zentrale Plattform</span></div>
+          <div><span class="prompt-card-label">Prompt 02 · Central platform</span></div>
           <div class="prompt-card-gap mild">-22 pp</div>
         </div>
-        <div class="prompt-card-query">Welche Plattformen gibt es für Unternehmen, um internationale Reisen, Remote Work und Entsendungen zentral zu verwalten?</div>
-        <div class="prompt-card-meta"><span class="pill-xs">low volume</span><span class="pill-xs">kategorie-failure</span></div>
+        <div class="prompt-card-query">What platforms exist for companies to centrally manage international travel, remote work, and posted-worker assignments?</div>
+        <div class="prompt-card-meta"><span class="pill-xs">low volume</span><span class="pill-xs">category failure</span></div>
         <div class="prompt-card-finding">
-          <strong>Kategorie-Failure über beide Modelle.</strong> Sowohl Perplexity (20.04.) als auch Google AI Overview (20.04.) nannten <em>keinen</em> spezifischen Anbieter in den <code>brands_mentioned</code>. Die Query ist zu abstrakt. Quellen: terrassign, pwc.de, remote.com, personalwirtschaft.de — generische HR- und Beratungs-Inhalte. Greenfield: wer einen neuen Kategorie-Begriff etabliert, gewinnt.
+          <strong>Category failure across both models.</strong> Both Perplexity (Apr 20) and Google AI Overview (Apr 20) named <em>no</em> specific vendor in <code>brands_mentioned</code>. The query is too abstract. Sources: terrassign, pwc.de, remote.com, personalwirtschaft.de — generic HR and consulting content. Greenfield: whoever defines a new category term wins.
         </div>
-        <div class="prompt-card-action">Kategorie-Hub mit klarer Vendor-Positionierung</div>
+        <div class="prompt-card-action">Category hub with clear vendor positioning</div>
       </div>
 
       <div class="prompt-card">
         <div class="prompt-card-top">
-          <div><span class="prompt-card-label">Prompt 03 · Workation Risiko</span></div>
+          <div><span class="prompt-card-label">Prompt 03 · Workation risk</span></div>
           <div class="prompt-card-gap mild">-19 pp</div>
         </div>
-        <div class="prompt-card-query">Welche Software eignet sich, um Workation-Anfragen automatisiert auf rechtliche Risiken zu prüfen?</div>
+        <div class="prompt-card-query">Which software automates legal-risk checks on workation requests?</div>
         <div class="prompt-card-meta"><span class="pill-xs">low volume</span><span style="background: var(--success-soft); color: var(--success); font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 999px;">template works</span></div>
         <div class="prompt-card-finding">
-          <strong>Das Template funktioniert.</strong> Google AI Overview (20.04.) zitierte <code>premote.de/loesungen/workation-compliance</code> 3×, <code>/loesungen/features/risiko-assessment</code> 1×, <code>/freigabe-prozesse</code> 1×. Insgesamt 5 premote-Zitate aus Solutions-Seiten. Muster bestätigt: Solutions-URLs werden zitiert.
+          <strong>The template works.</strong> Google AI Overview (Apr 20) cited <code>brand-a.com/solutions/workation-compliance</code> 3×, <code>/solutions/features/risk-assessment</code> 1×, <code>/approval-flows</code> 1×. Five Brand A citations in total, all from solutions pages. Pattern confirmed: solutions URLs do get cited.
         </div>
-        <div class="prompt-card-action">Position verteidigen · als Template-Referenz für A1 nutzen</div>
+        <div class="prompt-card-action">Defend position · use as template reference for A1</div>
       </div>
 
       <div class="prompt-card">
         <div class="prompt-card-top">
-          <div><span class="prompt-card-label">Prompt 05 · Freigabe-Prozesse</span></div>
+          <div><span class="prompt-card-label">Prompt 05 · Approval flows</span></div>
           <div class="prompt-card-gap mild">-10 pp</div>
         </div>
-        <div class="prompt-card-query">Welche Software gibt es für die Freigabe und Prüfung grenzüberschreitender Arbeit?</div>
+        <div class="prompt-card-query">What software exists for approving and reviewing cross-border work?</div>
         <div class="prompt-card-meta"><span class="pill-xs">low volume</span><span style="background: var(--success-soft); color: var(--success); font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 999px;">template works</span></div>
         <div class="prompt-card-finding">
-          <strong>Das Template funktioniert auch hier.</strong> Perplexity (20.04.) zitierte <code>premote.de/loesungen/features/freigabe-prozesse</code> 4× und <code>premote.de</code> 2×. <strong>Mehr premote-Zitate als WorkFlex-Zitate auf dieser Prompt.</strong> Der Rückstand resultiert aus der Listenreihenfolge, nicht aus fehlender Sichtbarkeit.
+          <strong>The template works here too.</strong> Perplexity (Apr 20) cited <code>brand-a.com/solutions/features/approval-flows</code> 4× and <code>brand-a.com</code> 2×. <strong>More Brand A citations than Brand B citations on this prompt.</strong> The deficit comes from list order, not visibility.
         </div>
-        <div class="prompt-card-action">Listicle-Ordnung verbessern via Editorial-Outreach</div>
+        <div class="prompt-card-action">Improve listicle ordering via editorial outreach</div>
       </div>
 
     </div>
@@ -954,14 +954,14 @@
 <!-- DEEP DIVE ON PROMPT 04 -->
 <section>
   <div class="container">
-    <div class="section-eyebrow"><span class="num">05</span> Deep Dive · Prompt 04</div>
-    <h2>Die A1-Prompt. <span class="accent">Unter dem Mikroskop.</span></h2>
-    <p class="section-intro">Sieben Chats über sieben Tage, drei Modelle. Fünf produktiv. Plus: der Fact-Check zur überraschendsten Entdeckung der Analyse.</p>
+    <div class="section-eyebrow"><span class="num">05</span> Deep dive · Prompt 04</div>
+    <h2>The A1 prompt. <span class="accent">Under the microscope.</span></h2>
+    <p class="section-intro">Seven chats over seven days, three models. Five usable. Plus: the fact-check on the most surprising discovery in the analysis.</p>
 
     <div class="teardown-hero">
       <div class="teardown-prompt-block">
-        <div class="teardown-prompt-label">Untersuchte Prompt</div>
-        <div class="teardown-prompt">Ich suche eine Software für A1-Bescheinigungen, Entsende­meldungen und internationale Reise­risiken. Welche gibt es?</div>
+        <div class="teardown-prompt-label">Prompt under analysis</div>
+        <div class="teardown-prompt">I'm looking for software for A1 certificates, posted-worker filings, and international travel risk. What's out there?</div>
         <div class="teardown-prompt-tags">
           <span class="pill">A1</span>
           <span class="pill">Risk</span>
@@ -970,100 +970,100 @@
         </div>
       </div>
       <div class="teardown-scores">
-        <div class="score-row"><span class="score-label">Sichtbarkeit premote</span><span class="score-value">43%</span></div>
-        <div class="score-row"><span class="score-label">Sichtbarkeit WorkFlex</span><span class="score-value accent">55%</span></div>
-        <div class="score-row"><span class="score-label">Position premote</span><span class="score-value">1.6</span></div>
-        <div class="score-row"><span class="score-label">Position WorkFlex</span><span class="score-value accent">1.2</span></div>
+        <div class="score-row"><span class="score-label">Brand A visibility</span><span class="score-value">43%</span></div>
+        <div class="score-row"><span class="score-label">Brand B visibility</span><span class="score-value accent">55%</span></div>
+        <div class="score-row"><span class="score-label">Brand A position</span><span class="score-value">1.6</span></div>
+        <div class="score-row"><span class="score-label">Brand B position</span><span class="score-value accent">1.2</span></div>
       </div>
     </div>
 
     <div style="margin-top: 72px;">
-      <h4>Evidenz · Chat-by-Chat</h4>
+      <h4>Evidence · chat by chat</h4>
       <div class="evidence">
-        <div class="evidence-row head"><div>Datum</div><div>Modell</div><div>WorkFlex-Zitate</div><div>premote-Zitate</div><div style="text-align: right;">Quellen</div></div>
+        <div class="evidence-row head"><div>Date</div><div>Model</div><div>Brand B citations</div><div>Brand A citations</div><div style="text-align: right;">Sources</div></div>
         <div class="evidence-row">
-          <div class="evidence-date">18.04.</div>
+          <div class="evidence-date">Apr 18</div>
           <div><span class="evidence-model gao">Google AI Overview</span></div>
-          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg b"></span></span><span>1 × Solutions-Page</span></div>
-          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg a"></span></span><span>1 × Wiki</span></div>
+          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg b"></span></span><span>1 × solutions page</span></div>
+          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg a"></span></span><span>1 × wiki</span></div>
           <div class="evidence-total">18</div>
         </div>
         <div class="evidence-row">
-          <div class="evidence-date">20.04.</div>
+          <div class="evidence-date">Apr 20</div>
           <div><span class="evidence-model gao">Google AI Overview</span></div>
           <div class="cite-detail"><span style="color: var(--ink-muted);">—</span></div>
-          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg a"></span></span><span>1 × Wiki</span></div>
+          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg a"></span></span><span>1 × wiki</span></div>
           <div class="evidence-total">19</div>
         </div>
         <div class="evidence-row">
-          <div class="evidence-date">21.04.</div>
+          <div class="evidence-date">Apr 21</div>
           <div><span class="evidence-model perplexity">Perplexity</span></div>
-          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg b"></span><span class="cite-seg b"></span></span><span>2 × A1-Page</span></div>
-          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg a"></span><span class="cite-seg a"></span></span><span>2 × Wiki</span></div>
+          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg b"></span><span class="cite-seg b"></span></span><span>2 × A1 page</span></div>
+          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg a"></span><span class="cite-seg a"></span></span><span>2 × wiki</span></div>
           <div class="evidence-total">10</div>
         </div>
         <div class="evidence-row highlight">
-          <div class="evidence-date">22.04.</div>
+          <div class="evidence-date">Apr 22</div>
           <div><span class="evidence-model perplexity">Perplexity</span></div>
-          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg b"></span><span class="cite-seg b"></span><span class="cite-seg b"></span><span class="cite-seg b"></span><span class="cite-seg b"></span></span><strong>10 × eigene Seiten</strong></div>
-          <div class="zero-flag">0 · nicht erwähnt</div>
+          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg b"></span><span class="cite-seg b"></span><span class="cite-seg b"></span><span class="cite-seg b"></span><span class="cite-seg b"></span></span><strong>10 × own pages</strong></div>
+          <div class="zero-flag">0 · not mentioned</div>
           <div class="evidence-total">25</div>
         </div>
         <div class="evidence-row">
-          <div class="evidence-date">23.04.</div>
+          <div class="evidence-date">Apr 23</div>
           <div><span class="evidence-model gao">Google AI Overview</span></div>
-          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg b"></span></span><span>1 × Solutions-Page</span></div>
+          <div class="cite-detail"><span class="cite-bar"><span class="cite-seg b"></span></span><span>1 × solutions page</span></div>
           <div class="zero-flag">0 (3 retrieved)</div>
           <div class="evidence-total">20</div>
         </div>
         <div class="evidence-row special">
-          <div class="evidence-date">23.04.</div>
+          <div class="evidence-date">Apr 23</div>
           <div><span class="evidence-model perplexity">Perplexity</span></div>
-          <div class="evidence-note">Scraper Login-Required Error · nicht auswertbar</div>
+          <div class="evidence-note">Scraper login-required error · not analyzable</div>
         </div>
         <div class="evidence-row special">
-          <div class="evidence-date">23.04.</div>
+          <div class="evidence-date">Apr 23</div>
           <div><span class="evidence-model chatgpt">ChatGPT</span></div>
-          <div class="evidence-note">Halluzinierte Anbieter (Xenion, Seerene, B2B Compliance) · keine getrackten Marken</div>
+          <div class="evidence-note">Hallucinated vendors (Xenion, Seerene, B2B Compliance) · no tracked brands</div>
         </div>
       </div>
     </div>
 
     <div style="margin-top: 72px;">
-      <h4>Wahrnehmungs-Asymmetrie</h4>
-      <p style="max-width: 72ch; margin-bottom: 24px;">Dieselbe Prompt, dieselben Modelle. Ein Anbieter wird mit 4–5 Features und quantifizierten Claims beschrieben. Der andere mit 2–3, ohne Spezifika. Der Grund: KI-Engines summieren das, was ihre Quellen hergeben. WorkFlex-Quellen sind Produkt­seiten. premote-Quellen sind Wiki-Artikel mit Bildungs­charakter.</p>
+      <h4>Perception asymmetry</h4>
+      <p style="max-width: 72ch; margin-bottom: 24px;">Same prompt, same models. One vendor is described with 4–5 features and quantified claims. The other with 2–3, no specifics. Why: AI engines summarize what their sources give them. Brand B sources are product pages. Brand A sources are wiki articles with an educational tone.</p>
 
       <div class="perception-grid">
-        <div class="perception-card workflex">
+        <div class="perception-card rival">
           <div class="perception-head">
-            <div class="perception-brand">WorkFlex</div>
-            <div class="feature-count">5<span class="sub">Features im Schnitt</span></div>
+            <div class="perception-brand">Brand B</div>
+            <div class="feature-count">5<span class="sub">features avg.</span></div>
           </div>
           <ul class="feature-list">
-            <li>Automatisierte A1-Beantragung</li>
-            <li>EU-Entsendemeldungen (PWD)</li>
-            <li>Visa-Prozesse</li>
-            <li>Reisekrankenversicherungen</li>
-            <li>Live-Risikodashboard</li>
+            <li>Automated A1 application</li>
+            <li>EU posted-worker filings (PWD)</li>
+            <li>Visa workflows</li>
+            <li>Travel health insurance</li>
+            <li>Live risk dashboard</li>
           </ul>
           <div class="quote-pull">
-            <div class="body">werksseitig verspricht automatisierte Erstellung und Haftung durch das System</div>
-            <span class="attr">— Perplexity, 21.04.</span>
+            <div class="body">factory-promises automated generation and liability through the system</div>
+            <span class="attr">— Perplexity, Apr 21</span>
           </div>
         </div>
-        <div class="perception-card premote">
+        <div class="perception-card own">
           <div class="perception-head">
-            <div class="perception-brand">premote</div>
-            <div class="feature-count">3<span class="sub">Features im Schnitt</span></div>
+            <div class="perception-brand">Brand A</div>
+            <div class="feature-count">3<span class="sub">features avg.</span></div>
           </div>
           <ul class="feature-list">
-            <li>A1-Bescheinigungen</li>
-            <li>Entsendemeldungen</li>
-            <li>Digitale Compliance / HR-Integration</li>
+            <li>A1 certificates</li>
+            <li>Posted-worker filings</li>
+            <li>Digital compliance / HR integration</li>
           </ul>
           <div class="quote-pull">
-            <div class="body">betont Automatisierung und Vereinfachung des Prozesses</div>
-            <span class="attr">— Perplexity, 21.04.</span>
+            <div class="body">emphasizes automation and process simplification</div>
+            <span class="attr">— Perplexity, Apr 21</span>
           </div>
         </div>
       </div>
@@ -1071,104 +1071,104 @@
 
     <!-- FACT CHECK RESOLVED -->
     <div style="margin-top: 72px;">
-      <h4>Fact-Check · Der WorkFlex-Haftungsclaim</h4>
-      <p style="max-width: 72ch; margin-bottom: 24px;">Eine der bemerkenswertesten Aussagen in der gesamten Analyse. Perplexity behauptete, WorkFlex verspreche "Haftung durch das System". Wenn das stimmt, wäre es ein kommerzieller Differenzierer. Wir haben es geprüft.</p>
+      <h4>Fact-check · the Brand B liability claim</h4>
+      <p style="max-width: 72ch; margin-bottom: 24px;">One of the most striking statements in the entire analysis. Perplexity claimed Brand B promises "liability through the system." If true, it would be a commercial differentiator. We checked.</p>
 
       <div class="fact-check">
         <div class="fact-check-header">
           <span class="fact-check-badge">RESOLVED</span>
-          <div class="fact-check-title">AI-Engines amplifizieren Marketing-Sprache zu rechtlichen Claims</div>
+          <div class="fact-check-title">AI engines amplify marketing language into legal claims</div>
         </div>
         <div class="fact-check-claim">
-          <strong>Die Behauptung:</strong> WorkFlex verspreche "automatisierte Erstellung <em>und Haftung durch das System</em>".<br>
-          <strong>Quelle:</strong> Perplexity, 21.04.2026, Prompt pr_be79e238.
+          <strong>The claim:</strong> Brand B promises "automated generation <em>and liability through the system</em>".<br>
+          <strong>Source:</strong> Perplexity, Apr 21, 2026, prompt pr_be79e238.
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Quellen-Prüfung</div>
-          <div>Der WorkFlex A1-Solutions-Page (<code>workflex.com/de/loesungen/a1-bescheinigung</code>) wurde vollständig via <code>get_url_content</code> abgerufen und geprüft.</div>
+          <div class="fact-check-label">Source check</div>
+          <div>The Brand B A1 solutions page (<code>brand-b.com/en/solutions/a1-certificates</code>) was fully retrieved and reviewed via <code>get_url_content</code>.</div>
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Was die Seite sagt</div>
-          <div>Die Seite verwendet Formulierungen wie <em>"Schützen Sie Ihr Unternehmen und Ihre Mitarbeitenden vor Risiken"</em>, <em>"100% rechtskonforme Dienstreisen"</em>, <em>"weltweite Abdeckung"</em>, <em>"Fürsorgepflicht erfüllen"</em>.</div>
+          <div class="fact-check-label">What the page says</div>
+          <div>The page uses phrases like <em>"protect your company and your employees from risk"</em>, <em>"100% legally compliant business travel"</em>, <em>"global coverage"</em>, <em>"fulfill your duty of care"</em>.</div>
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Was die Seite NICHT sagt</div>
-          <div>Kein expliziter Claim zur Haftungsübernahme durch das System. Keine Formulierung, die eine Übertragung rechtlicher Haftung auf WorkFlex verspricht. Die Schutzsprache bezieht sich auf Compliance-Unterstützung, nicht auf Haftungstransfer.</div>
+          <div class="fact-check-label">What the page does NOT say</div>
+          <div>No explicit claim that the system assumes legal liability. No phrasing that promises a transfer of legal liability to Brand B. The protection language refers to compliance support, not liability transfer.</div>
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Verdikt</div>
-          <div><span class="fact-check-verdict">⚠ UNBESTÄTIGT · Perplexity-Amplifikation</span><br><br>Perplexity hat Marketing-Sprache ("Schutz", "100% konform", "weltweite Abdeckung") zu einem stärkeren rechtlichen Claim ("Haftung durch das System") aggregiert, als die Quell­seite tatsächlich hergibt. Dies ist ein generischer AI-Artefakt, keine WorkFlex-Kommunikation.</div>
+          <div class="fact-check-label">Verdict</div>
+          <div><span class="fact-check-verdict">⚠ UNVERIFIED · Perplexity amplification</span><br><br>Perplexity aggregated marketing language ("protection", "100% compliant", "global coverage") into a stronger legal claim ("liability through the system") than the source page actually makes. This is a generic AI artifact, not Brand B's communication.</div>
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Strategische Implikation</div>
-          <div><strong>Für premote:</strong> Sales kann faktenbasiert kontern. WorkFlex beansprucht selbst keine Haftungs­übernahme. <strong>Methodisch:</strong> Stage 5 (Fact-Check) ist nicht optional. Ohne ihn würde eine naïve Analyse Perplexitys Aggregation als Wettbewerbs­information akzeptieren.</div>
+          <div class="fact-check-label">Strategic implication</div>
+          <div><strong>For Brand A:</strong> Sales can counter with facts. Brand B itself doesn't claim liability assumption. <strong>Methodologically:</strong> Stage 5 (fact-check) is not optional. Without it, a naive analysis would accept Perplexity's aggregation as competitive intelligence.</div>
         </div>
       </div>
 
       <div class="fact-check" style="margin-top: 32px;">
         <div class="fact-check-header">
-          <span class="fact-check-badge">RESOLVED · KORREKTUR</span>
-          <div class="fact-check-title">Die premote A1-Seite existiert und ist indiziert</div>
+          <span class="fact-check-badge">RESOLVED · CORRECTION</span>
+          <div class="fact-check-title">The Brand A A1 page exists and is indexed</div>
         </div>
         <div class="fact-check-claim">
-          <strong>Initiale Hypothese:</strong> premote hat keine dedizierte A1-Produktseite, nur Wiki-Artikel. Daher wird WorkFlex bevorzugt zitiert.<br>
-          <strong>Notiert durch Analysten-Feedback:</strong> Die Seite <code>premote.de/loesungen/features/a1-bescheinigung-cocs</code> existiert tatsächlich.
+          <strong>Initial hypothesis:</strong> Brand A has no dedicated A1 product page, only wiki articles. That's why Brand B is preferred for citation.<br>
+          <strong>Flagged by analyst feedback:</strong> The page <code>brand-a.com/solutions/features/a1-certificates-cocs</code> does in fact exist.
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Verifikation</div>
-          <div><code>get_url_content</code> auf <code>premote.de/loesungen/features/a1-bescheinigung-cocs</code>. Peec hat die Seite indiziert, letzter Scrape 16.04.2026. Klassifikation: <code>CORPORATE / PRODUCT_PAGE</code>.</div>
+          <div class="fact-check-label">Verification</div>
+          <div><code>get_url_content</code> on <code>brand-a.com/solutions/features/a1-certificates-cocs</code>. Peec has indexed the page, last scrape Apr 16, 2026. Classification: <code>CORPORATE / PRODUCT_PAGE</code>.</div>
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Inhaltliche Qualität</div>
-          <div>Starke Produktseite mit quantifizierten Claims: 15.732 durchgeführte Bescheinigungen, Ø 30 min Zeitersparnis pro Bescheinigung, Ø 35 % Kostenreduktion. Klare CTAs, Feature-Struktur, Interlinking zu Wiki-Inhalten.</div>
+          <div class="fact-check-label">Content quality</div>
+          <div>Strong product page with quantified claims: 15,732 certificates issued, avg. 30 min time saved per certificate, avg. 35% cost reduction. Clear CTAs, feature structure, interlinking to wiki content.</div>
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Retrieval-Status</div>
-          <div>Trotz Indizierung erscheint diese URL in <strong>keinem der 7 analysierten A1-Chats</strong> im Retrieval-Pool. Stattdessen werden premote Wiki-Artikel retrieved. Dies ist ein Discovery-Problem, kein Content-Problem.</div>
+          <div class="fact-check-label">Retrieval status</div>
+          <div>Despite being indexed, this URL appears in <strong>none of the 7 analyzed A1 chats</strong> in the retrieval pool. Brand A wiki articles are retrieved instead. This is a discovery problem, not a content problem.</div>
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Korrigierter Verdikt</div>
-          <div><span class="fact-check-verdict">✓ PAGE EXISTS · DISCOVERY FAILURE</span><br><br>Die Lücke schließt sich nicht durch Neu-Erstellung, sondern durch Diagnostik der existierenden Seite: URL-Tiefe, H1-Phrasing, Schema, interne Verlinkung, Backlinks. Mögliche Treiber der Nicht-Auffindbarkeit sind in Handlungspunkt 01 aufgeführt.</div>
+          <div class="fact-check-label">Corrected verdict</div>
+          <div><span class="fact-check-verdict">✓ PAGE EXISTS · DISCOVERY FAILURE</span><br><br>The gap doesn't close by building a new page — it closes by diagnosing the existing one: URL depth, H1 phrasing, schema, internal linking, backlinks. Possible drivers of non-discoverability are listed in action item 01.</div>
         </div>
 
         <div class="fact-check-row">
-          <div class="fact-check-label">Methodische Lehre</div>
-          <div>Der Peec-MCP-Workflow ermöglicht die Unterscheidung zwischen <em>nicht indiziert</em>, <em>indiziert aber nicht retrieved</em> und <em>retrieved aber nicht zitiert</em> — drei fundamental verschiedene Diagnosen mit drei verschiedenen Fixes. Ohne diese Granularität hätte die Analyse die falsche Aktion ("Seite bauen") anstelle der richtigen ("Seite auffindbar machen") empfohlen.</div>
+          <div class="fact-check-label">Methodological lesson</div>
+          <div>The Peec MCP workflow makes it possible to distinguish between <em>not indexed</em>, <em>indexed but not retrieved</em>, and <em>retrieved but not cited</em> — three fundamentally different diagnoses with three different fixes. Without that granularity, the analysis would have recommended the wrong action ("build the page") instead of the right one ("make the page discoverable").</div>
         </div>
       </div>
     </div>
 
     <!-- MOAT DIAGNOSIS -->
     <div style="margin-top: 72px;">
-      <h4>Moat-Diagnose · Warum WorkFlex gewinnt</h4>
+      <h4>Moat diagnosis · why Brand B wins</h4>
 
       <div class="moat-grid">
         <div class="moat-card strong">
           <div class="moat-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M6 17V9M10 17V9M14 17V9M18 17V9M3 9h18M12 3L3 9h18l-9-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="moat-title">Owned-Page Moat</div>
-          <div class="moat-subtitle">Eigene Produkt­seiten werden direkt zitiert</div>
-          <div class="moat-score">40<span class="unit">%</span><span class="sub">der Zitate auf Perplexity (22.04.)</span></div>
-          <div class="moat-body">WorkFlex nutzt <strong>zwei Domains</strong> (workflex.com + getworkflex.com) und fünf ranking-starke Seiten rund um A1. Am 22.04. kamen <strong>10 von 25 Perplexity-Zitaten</strong> direkt von WorkFlex-Domains.</div>
+          <div class="moat-title">Owned-page moat</div>
+          <div class="moat-subtitle">Own product pages get cited directly</div>
+          <div class="moat-score">40<span class="unit">%</span><span class="sub">of citations on Perplexity (Apr 22)</span></div>
+          <div class="moat-body">Brand B leverages <strong>two domains</strong> (brand-b.com) and five high-ranking pages around A1. On Apr 22, <strong>10 of 25 Perplexity citations</strong> came directly from Brand B domains.</div>
         </div>
         <div class="moat-card strong">
           <div class="moat-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="moat-title">Editorial Moat</div>
-          <div class="moat-subtitle">Dritt­quellen erwähnen WorkFlex als Anbieter</div>
-          <div class="moat-score">6<span class="sub">editorial Quellen zitieren WorkFlex</span></div>
-          <div class="moat-body"><strong>relokatehr.com</strong>, <strong>clevis.de</strong>, <strong>hrlab.de</strong>, <strong>kenjo.io</strong>, <strong>Concur-Blog</strong>, <strong>Deel-Blog</strong>. Alle nennen WorkFlex. Keine nennt premote als Anbieter.</div>
+          <div class="moat-title">Editorial moat</div>
+          <div class="moat-subtitle">Third-party sources name Brand B as a vendor</div>
+          <div class="moat-score">6<span class="sub">editorial sources cite Brand B</span></div>
+          <div class="moat-body"><strong>relokatehr.com</strong>, <strong>clevis.de</strong>, <strong>hrlab.de</strong>, <strong>kenjo.io</strong>, <strong>Concur Blog</strong>, <strong>Deel Blog</strong>. All name Brand B. None name Brand A as a vendor.</div>
         </div>
       </div>
 
@@ -1176,20 +1176,20 @@
         <div class="donut-wrap">
           <svg width="280" height="280" viewBox="0 0 280 280">
             <circle cx="140" cy="140" r="108" fill="none" stroke="var(--line-soft)" stroke-width="44"/>
-            <circle cx="140" cy="140" r="108" fill="none" stroke="var(--workflex)" stroke-width="44" stroke-dasharray="271.4 678.6" stroke-dashoffset="0" transform="rotate(-90 140 140)"/>
+            <circle cx="140" cy="140" r="108" fill="none" stroke="var(--rival-color)" stroke-width="44" stroke-dasharray="271.4 678.6" stroke-dashoffset="0" transform="rotate(-90 140 140)"/>
             <circle cx="140" cy="140" r="108" fill="none" stroke="#A16207" stroke-width="44" stroke-dasharray="190 678.6" stroke-dashoffset="-271.4" transform="rotate(-90 140 140)"/>
             <circle cx="140" cy="140" r="108" fill="none" stroke="#78716C" stroke-width="44" stroke-dasharray="135.7 678.6" stroke-dashoffset="-461.4" transform="rotate(-90 140 140)"/>
             <circle cx="140" cy="140" r="108" fill="none" stroke="#D4D4D4" stroke-width="44" stroke-dasharray="81.4 678.6" stroke-dashoffset="-597.1" transform="rotate(-90 140 140)"/>
           </svg>
           <div class="donut-center">
-            <div class="donut-label">Zitats-Verteilung</div>
+            <div class="donut-label">Citation distribution</div>
             <div class="donut-value">25</div>
-            <div class="donut-sub">Perplexity · 22.04.</div>
+            <div class="donut-sub">Perplexity · Apr 22</div>
           </div>
         </div>
         <div class="citation-breakdown">
           <div class="citation-item">
-            <div class="citation-label"><span class="dot" style="background: var(--workflex)"></span><span>WorkFlex <span class="domain">workflex.com + getworkflex.com</span></span></div>
+            <div class="citation-label"><span class="dot" style="background: var(--rival-color)"></span><span>Brand B <span class="domain">brand-b.com</span></span></div>
             <div class="citation-count">10<span class="pct">40%</span></div>
           </div>
           <div class="citation-item">
@@ -1205,78 +1205,78 @@
             <div class="citation-count">3<span class="pct">12%</span></div>
           </div>
           <div class="citation-item">
-            <div class="citation-label" style="color: var(--danger); font-weight: 600;"><span class="dot" style="background: var(--premote)"></span><span>premote</span></div>
-            <div class="citation-count" style="color: var(--danger);">0<span class="pct">nicht im Retrieval-Pool</span></div>
+            <div class="citation-label" style="color: var(--danger); font-weight: 600;"><span class="dot" style="background: var(--own-color)"></span><span>Brand A</span></div>
+            <div class="citation-count" style="color: var(--danger);">0<span class="pct">not in retrieval pool</span></div>
           </div>
         </div>
       </div>
     </div>
 
     <div style="margin-top: 80px;">
-      <h4>Handlungsplan · Prompt 04</h4>
+      <h4>Action plan · Prompt 04</h4>
       <div class="response-plan">
         <div class="response-item">
           <div class="response-number">01</div>
-          <div><span class="response-type onpage">Onpage · Discovery</span></div>
+          <div><span class="response-type onpage">On-page · Discovery</span></div>
           <div class="response-body">
-            <h4>Discovery-Audit der existierenden A1-Seite</h4>
-            <p>Die Seite <code>premote.de/loesungen/features/a1-bescheinigung-cocs</code> existiert und ist bei Peec als PRODUCT_PAGE indiziert, wird aber in keinem der analysierten A1-Chats retrieved. Fünf konkrete Prüfungen: (1) Query-zu-Heading-Alignment — aktueller H1 "A1 Bescheinigung &amp; CoCs" vs. WorkFlex "A1-Bescheinigung komplett automatisch beantragen". (2) URL-Tiefe — 3 Ebenen vs. WorkFlex 2 Ebenen; ggf. zusätzliche Kurz-URL <code>/loesungen/a1-bescheinigung</code> mit Redirect prüfen. (3) Schema.org Product/SoftwareApplication-Markup. (4) Interne Verlinkungs­dichte von Wiki-Seiten zur Solution-Seite. (5) externe Backlinks mit Query-relevantem Ankertext.</p>
+            <h4>Discovery audit of the existing A1 page</h4>
+            <p>The page <code>brand-a.com/solutions/features/a1-certificates-cocs</code> exists and is indexed at Peec as PRODUCT_PAGE, but is not retrieved in any of the analyzed A1 chats. Five concrete checks: (1) Query-to-heading alignment — current H1 "A1 Certificates &amp; CoCs" vs. Brand B "Apply for A1 certificates fully automatically". (2) URL depth — 3 levels vs. Brand B's 2; consider an additional short URL <code>/solutions/a1-certificates</code> with redirect. (3) Schema.org Product/SoftwareApplication markup. (4) Internal link density from wiki pages to the solutions page. (5) External backlinks with query-relevant anchor text.</p>
           </div>
         </div>
         <div class="response-item">
           <div class="response-number">02</div>
-          <div><span class="response-type onpage">Onpage · Content</span></div>
+          <div><span class="response-type onpage">On-page · Content</span></div>
           <div class="response-body">
-            <h4>Wiki-zu-Solution Link-Audit</h4>
-            <p>Die drei Wiki-Seiten zum A1-Thema werden von Google AI Overview retrieved (und gelegentlich zitiert), aber verlinken nicht prominent zurück auf die Solution-Seite. Ergebnis: AI sieht Wiki-Inhalt, erkennt ihn als Bildungs­material, und bietet keinen starken Pfad zur Produkt-Seite. Fix: Jede A1-Wiki-Seite erhält im ersten Drittel einen kontextuellen Link zur Solutions-Seite mit klarem Ankertext ("A1-Bescheinigung Software" statt "Mehr erfahren").</p>
+            <h4>Wiki-to-solution link audit</h4>
+            <p>The three wiki pages on the A1 topic are retrieved by Google AI Overview (and occasionally cited), but don't prominently link back to the solutions page. Result: AI sees wiki content, treats it as educational material, and offers no strong path to the product page. Fix: every A1 wiki page gets a contextual link to the solutions page in the first third of the article, with clear anchor text ("A1 certificate software" instead of "Learn more").</p>
           </div>
         </div>
         <div class="response-item">
           <div class="response-number">03</div>
           <div><span class="response-type editorial">Editorial</span></div>
           <div class="response-body">
-            <h4>Outreach an triplolo.com, relokatehr.com und clevis.de</h4>
-            <p>Von Peec unabhängig bestätigter Pfad. Peec Actions (scope=editorial, LISTICLE) nennt <a href="https://triplolo.com/10-best-corporate-travel-management-platforms-for-2026">triplolo.com/10-best-corporate-travel-management-platforms-for-2026</a> als High-Opportunity-Target. Pitch mit spezifischer Positio­nierung: Germany-first, SV-Meldeportal-Integration, HR-System-Einlese.</p>
+            <h4>Outreach to triplolo.com, relokatehr.com, and clevis.de</h4>
+            <p>Independently confirmed by Peec. Peec Actions (scope=editorial, LISTICLE) lists <a href="https://triplolo.com/10-best-corporate-travel-management-platforms-for-2026">triplolo.com/10-best-corporate-travel-management-platforms-for-2026</a> as a high-opportunity target. Pitch with specific positioning: Germany-first, social-security filing portal integration, HR system import.</p>
           </div>
         </div>
         <div class="response-item">
           <div class="response-number">04</div>
           <div><span class="response-type editorial">Editorial</span></div>
           <div class="response-body">
-            <h4>Perplexity-Discovery-Audit</h4>
-            <p>Am 22.04. war premote nicht einmal im Retrieval-Pool von Perplexity. Das ist kein Ranking-Problem, sondern ein Discovery-Problem. Prüfung: Sitemap-Coverage, Canonical-Setup, englische vs. deutsche URL-Variante, robots.txt-Durch­lässig­keit für Perplexity-Crawler.</p>
+            <h4>Perplexity discovery audit</h4>
+            <p>On Apr 22, Brand A wasn't even in Perplexity's retrieval pool. That isn't a ranking problem — it's a discovery problem. Check: sitemap coverage, canonical setup, English vs. German URL variant, robots.txt accessibility for Perplexity's crawler.</p>
           </div>
         </div>
         <div class="response-item">
           <div class="response-number">05</div>
-          <div><span class="response-type sales">Sales Enablement</span></div>
+          <div><span class="response-type sales">Sales enablement</span></div>
           <div class="response-body">
-            <h4>Battlecard · WorkFlex-Haftungsclaim · Fact-Check ergeben</h4>
-            <p>Der Fact-Check (siehe oben) hat ergeben: WorkFlex beansprucht selbst <strong>keine</strong> Haftungs­übernahme auf der eigenen Produkt­seite. Perplexity hat die Marketing-Sprache amplifiziert. Sales kann jetzt faktenbasiert kontern: "WorkFlex beansprucht laut eigener Produkt­seite keine Haftungs­übernahme. Die von AI zitierte Aussage ist eine Extrapolation, kein Claim des Anbieters."</p>
+            <h4>Battlecard · Brand B liability claim · fact-check resolved</h4>
+            <p>The fact-check (above) resolved: Brand B itself does <strong>not</strong> claim liability assumption on its own product page. Perplexity amplified marketing language. Sales can now counter with facts: "According to Brand B's own product page, Brand B does not claim liability assumption. The statement cited by AI is an extrapolation, not a vendor claim."</p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="measurement">
-      <h3>Messung · Recheck-Plan</h3>
-      <p class="measurement-intro">Zielmetriken für Prompt 04 nach Umsetzung der Handlungs­punkte. Re-Run der Stages 1–5 zu jedem Stichtag.</p>
+      <h3>Measurement · recheck plan</h3>
+      <p class="measurement-intro">Target metrics for Prompt 04 after action items ship. Re-run Stages 1–5 at each checkpoint.</p>
       <div class="targets">
         <div class="target-card">
-          <div class="target-days">14T</div>
-          <div class="target-metric">Baseline-Messung nach Veröffent­lichung der neuen A1-Produktseite</div>
+          <div class="target-days">14d</div>
+          <div class="target-metric">Baseline measurement after the new A1 product page goes live</div>
         </div>
         <div class="target-card">
-          <div class="target-days">28T</div>
-          <div class="target-metric">Eine zitierte Listicle-Quelle, die premote erwähnt (Editorial-Moat Proof-Point)</div>
+          <div class="target-days">28d</div>
+          <div class="target-metric">One cited listicle source that mentions Brand A (editorial-moat proof point)</div>
         </div>
         <div class="target-card">
-          <div class="target-days">56T</div>
-          <div class="target-metric">Sichtbarkeit von 43% auf 50%+ · Position von 1.6 auf ≤1.4</div>
+          <div class="target-days">56d</div>
+          <div class="target-metric">Visibility from 43% to 50%+ · position from 1.6 to ≤1.4</div>
         </div>
         <div class="target-card">
-          <div class="target-days">56T</div>
-          <div class="target-metric">Perplexity-Retrieval: mindestens eine premote-Seite im Pool</div>
+          <div class="target-days">56d</div>
+          <div class="target-metric">Perplexity retrieval: at least one Brand A page in the pool</div>
         </div>
       </div>
     </div>
@@ -1286,81 +1286,81 @@
 <!-- METHODOLOGY VALIDATION -->
 <section>
   <div class="container">
-    <div class="section-eyebrow"><span class="num">06</span> Methodik-Validierung</div>
-    <h2>Zwei Methoden. <span class="accent">Dieselbe Antwort.</span></h2>
-    <p class="section-intro">Qualitativer Deep-Dive über 877 AI-Chats liefert dieselbe Top-Empfehlung wie Peecs native Opportunity-Scoring-Engine. Das ist keine Zufälligkeit, sondern Validierung.</p>
+    <div class="section-eyebrow"><span class="num">06</span> Methodology validation</div>
+    <h2>Two methods. <span class="accent">Same answer.</span></h2>
+    <p class="section-intro">A qualitative deep-dive across 877 AI chats produces the same top recommendation as Peec's native opportunity-scoring engine. That isn't coincidence — it's validation.</p>
 
     <div class="validation-card" style="margin-top: 56px;">
       <div class="validation-grid">
         <div class="validation-col">
-          <h4>Unsere qualitative Analyse</h4>
-          <h3>AI-Discovery ist das eigentliche Problem.</h3>
-          <p style="font-size: 14px; margin-bottom: 20px;">Abgeleitet aus manueller Chat-Analyse, Wahrnehmungs-Asymmetrie, Moat-Diagnose und Stage-5-Fact-Check über 5 Battleground-Prompts — inkl. einer korrigierten Erst-Hypothese.</p>
+          <h4>Our qualitative analysis</h4>
+          <h3>AI discovery is the actual problem.</h3>
+          <p style="font-size: 14px; margin-bottom: 20px;">Derived from manual chat analysis, perception asymmetry, moat diagnosis, and Stage 5 fact-check across 5 battleground prompts — including one corrected initial hypothesis.</p>
           <ul class="validation-list">
-            <li><span class="score">#1</span><span>premote A1-Solutions-Seite existiert und ist indiziert, erscheint aber in 0 von 7 analysierten Chats im Retrieval-Pool</span></li>
-            <li><span class="score">#2</span><span>Andere Solutions-Seiten (Workation, Freigabe, Risiko-Assessment) werden retrieved und zitiert — Discovery-Asymmetrie innerhalb derselben Domain</span></li>
-            <li><span class="score">#3</span><span>Editorial-Listicle-Outreach ist sekundärer Hebel (relokatehr, clevis, triplolo)</span></li>
+            <li><span class="score">#1</span><span>The Brand A A1 solutions page exists and is indexed, but appears in 0 of 7 analyzed chats in the retrieval pool</span></li>
+            <li><span class="score">#2</span><span>Other solutions pages (workation, approval flows, risk assessment) are retrieved and cited — discovery asymmetry within the same domain</span></li>
+            <li><span class="score">#3</span><span>Editorial listicle outreach is the secondary lever (relokatehr, clevis, triplolo)</span></li>
           </ul>
         </div>
         <div class="validation-col">
-          <h4>Peec Actions Engine</h4>
-          <h3>Owned · Product Page · HIGH Opportunity.</h3>
-          <p style="font-size: 14px; margin-bottom: 20px;">Unabhängig berechnetes Opportunity-Scoring über 877 Chats, 20 Prompts, 3 Modelle. <code>scope=overview</code> auf dem 30-Tage-Fenster.</p>
+          <h4>Peec Actions engine</h4>
+          <h3>Owned · product page · HIGH opportunity.</h3>
+          <p style="font-size: 14px; margin-bottom: 20px;">Independently computed opportunity scoring across 877 chats, 20 prompts, 3 models. <code>scope=overview</code> on the 30-day window.</p>
           <ul class="validation-list">
-            <li><span class="score">0.33</span><span><strong>OWNED / PRODUCT_PAGE</strong> · HIGH · Gap 43% · höchster Score der gesamten Analyse</span></li>
-            <li><span class="score">0.15</span><span>OWNED / LISTICLE · Medium · Gap 100%</span></li>
-            <li><span class="score">0.06</span><span>EDITORIAL / LISTICLE · Medium · Gap 100% · mit konkretem Target <code>triplolo.com</code></span></li>
+            <li><span class="score">0.33</span><span><strong>OWNED / PRODUCT_PAGE</strong> · HIGH · gap 43% · highest score in the entire analysis</span></li>
+            <li><span class="score">0.15</span><span>OWNED / LISTICLE · Medium · gap 100%</span></li>
+            <li><span class="score">0.06</span><span>EDITORIAL / LISTICLE · Medium · gap 100% · with a concrete target <code>triplolo.com</code></span></li>
           </ul>
-          <div class="validation-check">Beide Methoden identifizieren Product-Page-Performance als Haupthebel</div>
+          <div class="validation-check">Both methods identify product-page performance as the primary lever</div>
         </div>
       </div>
     </div>
 
-    <p style="margin-top: 40px; max-width: 72ch; font-size: 15px; line-height: 1.6;">Beide Methoden verweisen auf denselben Hebel: Product Pages. Die Konvergenz ist der Qualitäts-Beleg für den Workflow. Gleichzeitig zeigt die hier dokumentierte Korrektur (die Seite existiert bereits) den Wert der mehrstufigen Verifikation: die erste Hypothese ("Seite fehlt") wäre ohne Stage 5 (Fact-Check &amp; Source Verification) als finale Empfehlung durchgegangen. Der Workflow fängt genau solche Fehler ab.</p>
+    <p style="margin-top: 40px; max-width: 72ch; font-size: 15px; line-height: 1.6;">Both methods point to the same lever: product pages. The convergence is the workflow's quality proof. At the same time, the correction documented here (the page already exists) demonstrates the value of multi-stage verification: the initial hypothesis ("page missing") would have shipped as the final recommendation without Stage 5 (fact-check &amp; source verification). The workflow catches exactly that class of error.</p>
   </div>
 </section>
 
 <!-- DATA QUALITY -->
 <section>
   <div class="container">
-    <div class="section-eyebrow"><span class="num">07</span> Datenqualität</div>
-    <h2>Was bereinigt wurde. <span class="accent">Was noch fehlt.</span></h2>
+    <div class="section-eyebrow"><span class="num">07</span> Data quality</div>
+    <h2>What was cleaned up. <span class="accent">What's still missing.</span></h2>
 
     <div class="notes-grid" style="margin-top: 56px;">
       <div class="note-card fixed">
-        <div class="note-label">Bereinigt</div>
-        <h3>ICUnet.Group · Domain-Fehl­konfiguration</h3>
-        <p>Die Domain <code>lego.com</code> war fälschlich als ICUnet-Match konfiguriert. Bereinigt am 23.04.2026 via <code>update_brand</code>.</p>
+        <div class="note-label">Fixed</div>
+        <h3>ICUnet.Group · domain misconfiguration</h3>
+        <p>The domain <code>lego.com</code> was incorrectly configured as an ICUnet match. Fixed Apr 23, 2026 via <code>update_brand</code>.</p>
       </div>
       <div class="note-card info">
-        <div class="note-label">Empfehlung</div>
-        <h3>Neue Marken tracken</h3>
-        <p><strong>Brisa</strong> (brisatravel.com), <strong>Whatever Works</strong> (whatever.works), <strong>Workdate</strong> (workdate.com) erscheinen in Analyse-Chats, sind aber nicht als Marken in Peec getrackt. Empfehlung: via <code>create_brand</code> hinzufügen.</p>
+        <div class="note-label">Recommendation</div>
+        <h3>Track new brands</h3>
+        <p><strong>Brisa</strong> (brisatravel.com), <strong>Whatever Works</strong> (whatever.works), <strong>Workdate</strong> (workdate.com) appear in analyzed chats but aren't tracked as brands in Peec. Recommendation: add via <code>create_brand</code>.</p>
       </div>
       <div class="note-card warn">
-        <div class="note-label">Methodik-Hinweis</div>
-        <h3>ChatGPT halluziniert in dieser Nische</h3>
-        <p>Nicht-such-gestütztes ChatGPT nennt für deutsche B2B-Nischen erfundene Anbieter (Xenion, Seerene, B2B Compliance). ChatGPT-Sichtbarkeit nicht als primäres Signal werten.</p>
+        <div class="note-label">Methodology note</div>
+        <h3>ChatGPT hallucinates in this niche</h3>
+        <p>Non-search-grounded ChatGPT names invented vendors for German B2B niches (Xenion, Seerene, B2B Compliance). Don't treat ChatGPT visibility as a primary signal.</p>
       </div>
       <div class="note-card warn">
-        <div class="note-label">Methodik-Hinweis</div>
-        <h3>AI-Amplifikation von Marketing-Sprache</h3>
-        <p>Stage-5-Fact-Check hat ergeben: Perplexity hat WorkFlex-Marketingsprache zu einem rechtlichen Haftungs­claim aggregiert, den die Quellseite nicht macht. Fact-Check ist deshalb im Workflow zwingend.</p>
+        <div class="note-label">Methodology note</div>
+        <h3>AI amplification of marketing language</h3>
+        <p>The Stage 5 fact-check found: Perplexity aggregated Brand B marketing language into a legal liability claim that the source page does not make. That's why fact-check is mandatory in the workflow.</p>
       </div>
       <div class="note-card">
-        <div class="note-label">Offener Punkt</div>
-        <h3>Nur 3 aktive Modelle</h3>
-        <p>ChatGPT, Google AI Overview, Perplexity. Gemini, Claude, Copilot inaktiv. Für tiefere Cross-Modell-Vergleiche mindestens Gemini aktivieren.</p>
+        <div class="note-label">Open item</div>
+        <h3>Only 3 active models</h3>
+        <p>ChatGPT, Google AI Overview, Perplexity. Gemini, Claude, Copilot inactive. For deeper cross-model comparison, at minimum activate Gemini.</p>
       </div>
       <div class="note-card">
-        <div class="note-label">Offener Punkt</div>
-        <h3>Topics nicht eingerichtet</h3>
-        <p>Alle Prompts sind unter <em>"No Topic"</em>. Tags werden genutzt. Bei Topic-Aufbau wäre zusätzliche Dimension für Cross-Prompt-Analyse verfügbar.</p>
+        <div class="note-label">Open item</div>
+        <h3>Topics not set up</h3>
+        <p>All prompts sit under <em>"No Topic"</em>. Tags are used instead. Building out topics would unlock an additional dimension for cross-prompt analysis.</p>
       </div>
       <div class="note-card info">
-        <div class="note-label">Methodik</div>
-        <h3>Stichprobe statt Vollerhebung</h3>
-        <p>Retrieval-Analyse basiert auf repräsentativen Chat-Stichproben pro Prompt (2–7 Chats pro Prompt, über verschiedene Modelle und Tage verteilt). Aggregat-Zahlen stammen aus Peecs <code>get_brand_report</code> über alle 877 Chats. Für eine URL-genaue Discoverability-Rate pro Seite wäre eine Vollerhebung (ca. 100 Chats auswerten) der nächste Schritt.</p>
+        <div class="note-label">Methodology</div>
+        <h3>Sampled, not exhaustive</h3>
+        <p>Retrieval analysis is based on representative chat samples per prompt (2–7 chats per prompt, spread across models and days). Aggregate numbers come from Peec's <code>get_brand_report</code> across all 877 chats. For a URL-level discoverability rate per page, a full sweep (~100 chats) would be the next step.</p>
       </div>
     </div>
   </div>
@@ -1373,7 +1373,7 @@
         <div class="logo-mark" style="width: 28px; height: 28px; font-size: 12px;">AI</div>
         Perception Teardown
       </div>
-      <div class="footer-meta">Erstellt mit Peec AI MCP · 23.04.2026 · v4.1 · Cross-Modell verifiziert</div>
+      <div class="footer-meta">Built with Peec AI MCP · Apr 23, 2026 · v4.1 · cross-model verified</div>
       <div class="built-badge">#BuiltWithPeec</div>
     </div>
   </div>
